@@ -54,8 +54,8 @@ class MainApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
-        // '/home': (context) => const HomeScreen(),
-        // '/create': (context) => const QrGeneratorScreen(),
+        '/home': (context) => const HomeScreen(),
+        '/create': (context) => const QrGeneratorScreen(),
         // '/scan': (context) => const QrScannerScreen(),
       },
     );
