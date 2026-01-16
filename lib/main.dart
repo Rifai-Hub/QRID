@@ -1,5 +1,5 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart'; // untuk kReleaseMode
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'ui/splash_screen.dart';
@@ -10,11 +10,9 @@ import 'ui/qr_scanner_screen.dart';
 void main() {
   runApp(
     DevicePreview(
-      enabled: !kReleaseMode, // mati otomatis saat build release
+      enabled: !kReleaseMode,
       defaultDevice: Devices.ios.iPhone11ProMax,
-      devices: [
-        Devices.ios.iPhone11ProMax,
-      ],
+      devices: [Devices.ios.iPhone11ProMax],
       builder: (context) => const MainApp(),
     ),
   );
@@ -26,17 +24,17 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Integrasi Device Preview (wajib ketiga baris ini)
+      // Integrasi Device Preview
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
 
       debugShowCheckedModeBanner: false,
-      title: 'QRODE - QR Generator & Scanner',
+      title: 'QRID - QR Generator & Scanner',
 
       // Tema global menggunakan Material 3
       theme: ThemeData(
-        fontFamily: 'Manrope',
+        fontFamily: 'SF Pro',
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFF553FB8), // warna brand utama
           brightness: Brightness.light,
@@ -50,7 +48,7 @@ class MainApp extends StatelessWidget {
         ),
       ),
 
-      // Routing sederhana dengan named routes
+      // Routing
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
